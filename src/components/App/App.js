@@ -43,7 +43,6 @@ class App extends Component {
 
   toggleProperty(arr, id, propName) {
     const newArray = arr.map(i => i.id === id ? { ...i, [propName]: !i[propName] } : i);
-    console.log(arr, newArray)
     return { todoData: newArray }
   }
 
