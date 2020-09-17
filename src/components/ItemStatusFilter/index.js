@@ -1,1 +1,1 @@
-export {default} from './ItemStatusFilter';
+export { default } from './ItemStatusFilter';
