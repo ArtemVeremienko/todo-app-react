@@ -28,8 +28,7 @@ class ItemAddForm extends Component {
           onChange={this.onLabelChange}
           placeholder="What needs to be done" />
         <button
-          className="btn btn-outline-secondary"
-          onClick={() => this.props.onItemAdded('text')} >
+          className="btn btn-outline-secondary">
           Add Item
         </button>
       </form>
