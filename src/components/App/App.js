@@ -7,17 +7,23 @@ import ItemStatusFilter from '../ItemStatusFilter';
 import ItemAddForm from '../ItemAddForm';
 
 class App extends Component {
+  localStorageKey = 'todo-app-react';
 
   maxId = 100;
 
   state = {
-    todoData: [
-      this.createTodoItem('Drink Coffee'),
-      this.createTodoItem('Make Awesome App'),
-      this.createTodoItem('Have a Lunch'),
-    ],
+    todoData: [],
     term: '',
     filter: 'all',
+  }
+
+  componentDidMount() {
+    const data = JSON.parse(localStorage.getItem(this.localStorageKey)) || [];
+    this.setState(data)
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.state))
   }
 
   createTodoItem(label) {
