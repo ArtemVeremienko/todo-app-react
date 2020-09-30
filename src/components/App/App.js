@@ -19,14 +19,13 @@ class App extends Component {
 
   componentDidMount() {
     const data = JSON.parse(localStorage.getItem(this.localStorageKey)) || [];
-    if (data.todoData.length) {
-      this.maxId = data.todoData[data.todoData.length - 1].id + 1;
-    }
-    this.setState(data)
+    if (!data.length) return;
+    this.maxId = data[data.length - 1].id + 1;
+    this.setState({ todoData: data })
   }
 
   componentDidUpdate() {
-    localStorage.setItem(this.localStorageKey, JSON.stringify(this.state))
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.state.todoData))
   }
 
   createTodoItem(label) {
