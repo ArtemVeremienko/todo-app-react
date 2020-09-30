@@ -19,6 +19,9 @@ class App extends Component {
 
   componentDidMount() {
     const data = JSON.parse(localStorage.getItem(this.localStorageKey)) || [];
+    if (data.todoData.length) {
+      this.maxId = data.todoData[data.todoData.length - 1].id + 1;
+    }
     this.setState(data)
   }
 
